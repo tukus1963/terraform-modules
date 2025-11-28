@@ -81,9 +81,14 @@ module "vm" {
 }
 
 
-module "storage_account" {
-  source = "./modules/storageaccount"
-  account_name = var.account_name
-  location = var.location
-  resource_group_name = module.rg.rg_name
+module "storage" {
+  source              = "./modules/storageaccount"
+  name                = "mystaticwseerfeb123"
+  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.rg.name
+
+  static_website = {
+    index_document     = "index.html"
+    error_404_document = "404.html"
+  }
 }

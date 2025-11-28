@@ -1,8 +1,11 @@
-output "storage_account_name" {
-  value = azurerm_storage_account.account.name
+output "id" {
+  value = azurerm_storage_account.this.id
 }
 
-output "storage_account_id" {
-  value = azurerm_storage_account.account.id
+output "primary_connection_string" {
+  value = azurerm_storage_account.this.primary_connection_string
 }
 
+output "primary_blob_endpoint" {
+  value = azurerm_storage_account.this.primary_blob_endpoint
+}
