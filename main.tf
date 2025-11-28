@@ -79,3 +79,11 @@ module "vm" {
   resource_group_name = module.rg.rg_name
   location = var.location
 }
+
+
+module "storage_account" {
+  source = "./modules/storageaccount"
+  account_name = var.account_name
+  location = var.location
+  resource_group_name = module.rg.rg_name
+}
